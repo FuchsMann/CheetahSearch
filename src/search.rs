@@ -11,8 +11,6 @@ pub struct Search {
     pub search_hits: Vec<SearchHit>,
 }
 
-// function to create a new search
-
 impl Search {
     pub fn new(root_folder: String, keywords: Vec<String>, file_extensions: Vec<String>) -> Search {
         Search {
@@ -25,7 +23,6 @@ impl Search {
     }
 
     pub fn index_filepaths(&mut self) {
-        // get all files in self.root_folder and all its subdirectories
         let mut filepaths = Vec::new();
         let mut filepaths_to_check = Vec::new();
         filepaths_to_check.push(self.root_folder.clone());

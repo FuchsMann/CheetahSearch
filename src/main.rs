@@ -1,12 +1,14 @@
 mod search;
 mod search_hit;
 
+use search::Search;
+
 fn main() {
     println!("S INIT");
-    let mut search = search::Search::new(
+    let mut search = Search::new(
         String::from("C:\\Users\\timst"),
-        vec![String::from("Tomcat")],
-        vec![String::from("h"), String::from("json")],
+        vec![String::from("sussy baka")],
+        vec![String::from(".txt"), String::from("json")],
     );
 
     println!("Starting Index.");
