@@ -14,9 +14,5 @@ impl SearchHit {
             col_nr
         }
     }
-
-    pub fn to_string(&self) -> String {
-        format!("{}:{}:{}:{}", self.file_path, self.line_nr, self.col_nr, self.line_content)
-    }
 }
 

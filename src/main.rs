@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 mod search;
 mod search_hit;
 mod chee_ui;

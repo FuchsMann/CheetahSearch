@@ -1,5 +1,4 @@
 use crate::search_hit::SearchHit;
-use num_cpus::get;
 use std::{thread::{self, JoinHandle}, io::{BufRead, BufReader}, fs::File};
 
 pub struct Search {
@@ -42,6 +41,11 @@ impl Search {
                     filepaths.push(path.to_str().unwrap().to_string());
                 }
             }
+        }
+
+        if self.file_extensions.len() == 0 {
+            self.qualified_filepaths = filepaths;
+            return;
         }
 
         for filepath in filepaths {
