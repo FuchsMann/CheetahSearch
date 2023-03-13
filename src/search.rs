@@ -77,9 +77,9 @@ impl Search {
         search_hits
     }
 
-    pub fn parallel_search(&mut self) {
+    pub fn parallel_search(&mut self, cores: u32) {
         let mut handles: Vec<JoinHandle<Vec<SearchHit>>> = Vec::new();
-        let nr_of_threads: u32 = get() as u32;
+        let nr_of_threads: u32 = cores;
         let mut thread_ctr: u32 = 0;
 
         for filepath in &self.qualified_filepaths {
