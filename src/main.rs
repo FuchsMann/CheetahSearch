@@ -1,14 +1,22 @@
 mod search;
 mod search_hit;
+mod chee_ui;
 
-use search::Search;
+//use search::Search;
 
+use chee_ui::app_init;
+
+fn main() {
+    app_init().unwrap();
+}
+
+/* 
 fn main() {
     println!("S INIT");
     let mut search = Search::new(
-        String::from("C:\\Users\\timst"),
-        vec![String::from("sussy baka")],
-        vec![String::from(".txt"), String::from("json")],
+        String::from("/Users/timstammwitz/Documents"),
+        vec![String::from("search")],
+        vec![String::from(".rs"), String::from("cheese")],
     );
 
     println!("Starting Index.");
@@ -20,3 +28,4 @@ fn main() {
         println!("{}", search_hit.to_string());
     }
 }
+*/
