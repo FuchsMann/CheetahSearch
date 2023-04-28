@@ -131,14 +131,6 @@ impl eframe::App for MyApp {
                     });
                 })
                 .body(|mut body| {
-                    // body.row(30.0, |mut row| {
-                    //     row.col(|ui| {
-                    //         ui.label(String::new());
-                    //     });
-                    //     row.col(|ui| {
-                    //         ui.label(String::new());
-                    //     });
-                    // });
                     for (i, hit) in self.search_hits.iter().enumerate() {
                         body.row(30.0, |mut row| {
                             row.col(|ui| {
