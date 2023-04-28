@@ -121,10 +121,14 @@ impl eframe::App for MyApp {
             TableBuilder::new(ui)
                 .striped(true)
                 .column(Column::auto().resizable(true))
+                .column(Column::auto().resizable(true))
                 .column(Column::remainder())
                 .header(20.0, |mut header| {
                     header.col(|ui| {
                         ui.heading("Hits");
+                    });
+                    header.col(|ui| {
+                        ui.heading("Col");
                     });
                     header.col(|ui| {
                         ui.heading("Filename");
@@ -135,6 +139,9 @@ impl eframe::App for MyApp {
                         body.row(30.0, |mut row| {
                             row.col(|ui| {
                                 ui.label(i.to_string());
+                            });
+                            row.col(|ui| {
+                                ui.label(hit.col_nr.to_string());
                             });
                             row.col(|ui| {
                                 ui.label(hit.file_path.clone());

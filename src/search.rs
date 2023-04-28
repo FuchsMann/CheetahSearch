@@ -59,6 +59,18 @@ impl Search {
     }
 
     pub fn single_file_search(filepath: String, keywords: Vec<String>) -> Vec<SearchHit> {
+
+        fn get_col(line: String, keyword: String) -> u32 {
+            let mut col = 0;
+            for c in line.chars() {
+                if c == keyword.chars().next().unwrap() {
+                    break;
+                }
+                col += 1;
+            }
+            col
+        }
+
         let mut search_hits = Vec::new();
         let file = match File::open(filepath.clone()) {
             Ok(file) => file,
@@ -73,7 +85,7 @@ impl Search {
             };
             for keyword in &keywords {
                 if line.contains(keyword) {
-                    let search_hit = SearchHit::new(filepath.clone(), line.clone(), line_nr as u32, 0);
+                    let search_hit = SearchHit::new(filepath.clone(), line.clone(), line_nr as u32, get_col(line.clone(), keyword.clone()));
                     search_hits.push(search_hit);
                 }
             }
